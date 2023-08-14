@@ -1,4 +1,13 @@
+/.vscode
+
 /.qsys_edit
 /db
 /platform
-/.vscode
+
+/software/timers/obj
+/software/timers/mem_init
+/software/timers/timers.elf
+/software/timers/timers.map
+
+/software/timers_bsp/obj
+/software/timers_bsp/libhal_bsp.a

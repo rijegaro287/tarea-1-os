@@ -121,7 +121,76 @@ static unsigned seconds_display_1 = DISPLAY_OFF;
 static unsigned millis_display_0 = DISPLAY_OFF;
 static unsigned millis_display_1 = DISPLAY_OFF;
 static unsigned millis_display_2 = DISPLAY_OFF;
-static unsigned millis_display_3 = DISPLAY_OFF;
+
+static unsigned get_display_bits(unsigned value) {
+  unsigned display_bits;
+
+  switch (value) {
+  case 0:
+    display_bits = DISPLAY_0;
+    break;
+
+  case 1:
+    display_bits = DISPLAY_1;
+    break;
+
+  case 2:
+    display_bits = DISPLAY_2;
+    break;
+
+  case 4:
+    display_bits = DISPLAY_4;
+    break;
+
+  case 5:
+    display_bits = DISPLAY_5;
+    break;
+
+  case 6:
+    display_bits = DISPLAY_6;
+    break;
+
+  case 7:
+    display_bits = DISPLAY_7;
+    break;
+
+  case 8:
+    display_bits = DISPLAY_8;
+    break;
+
+  case 9:
+    display_bits = DISPLAY_9;
+    break;
+
+  default:
+    display_bits = DISPLAY_OFF;
+    break;
+  }
+
+  return display_bits;
+}
+
+static void set_displays() {
+  minutes_display_0 = get_display_bits(minutes % 10);
+  minutes_display_1 = get_display_bits(minutes / 10);
+
+  seconds_display_0 = get_display_bits(seconds % 10);
+  seconds_display_1 = get_display_bits(seconds / 10);
+
+  millis_display_0 = get_display_bits(millis % 10);
+  millis_display_1 = get_display_bits((millis / 10) % 10);
+  millis_display_2 = get_display_bits((millis / 100) % 10);
+
+  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_0_BASE, minutes_display_0);
+  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_1_BASE, minutes_display_1);
+
+  IOWR_ALTERA_AVALON_PIO_DATA(SEG_0_BASE, seconds_display_0);
+  IOWR_ALTERA_AVALON_PIO_DATA(SEG_1_BASE, seconds_display_1);
+
+  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_4_BASE, millis_display_0);
+  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_5_BASE, millis_display_1);
+  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_6_BASE, millis_display_2);
+}
 
 static void stop_timer() {
   const unsigned timer_ms_control = IORD_ALTERA_AVALON_TIMER_CONTROL(TIMER_MS_0_BASE)
@@ -159,10 +228,6 @@ static void set_timer(void* context) {
   set_displays();
 }
 
-static void set_displays() {
-
-}
-
 int main()
 {
   mode = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & 0b0011;
@@ -197,6 +262,11 @@ int main()
     NULL,
     NULL
   );
+
+  IOWR_ALTERA_AVALON_TIMER_CONTROL(
+    TIMER_MS_0_BASE,
+    ALTERA_AVALON_TIMER_CONTROL_ITO_MSK
+    | ALTERA_AVALON_TIMER_CONTROL_CONT_MSK);
 
   /* Event loop never exits. */
   while (1);
