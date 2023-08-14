@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'platform'
 # SOPC Builder design path: ../../platform.sopcinfo
 #
-# Generated: Sun Aug 13 17:03:57 CST 2023
+# Generated: Sun Aug 13 20:00:19 CST 2023
 
 # DO NOT MODIFY THIS FILE
 #
@@ -47,7 +47,7 @@
 # by allowing GDB to cache memory contents on the host.
 
 # rom_0
-memory 0x0 0x1000 cache
+memory 0x0 0x8000 cache
 
 # ram_0
-memory 0x10000 0x11000 cache
+memory 0x10000 0x12000 cache

@@ -103,7 +103,6 @@
 /*
 * PIO_SWITCHES_0_BASE[1:0] -> mode
 * PIO_SWITCHES_0_BASE[2] -> stop
-* PIO_SWITCHES_0_BASE[3] -> reset
 */
 static unsigned mode = 0;
 static bool stop = false;
@@ -181,11 +180,11 @@ static void set_displays() {
   millis_display_1 = get_display_bits((millis / 10) % 10);
   millis_display_2 = get_display_bits((millis / 100) % 10);
 
-  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_0_BASE, minutes_display_0);
-  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_1_BASE, minutes_display_1);
+  // IOWR_ALTERA_AVALON_PIO_DATA(MINUTES_DISPLAY_0_BASE, minutes_display_0);
+  // IOWR_ALTERA_AVALON_PIO_DATA(MINUTES_DISPLAY_1_BASE, minutes_display_1);
 
-  IOWR_ALTERA_AVALON_PIO_DATA(SEG_0_BASE, seconds_display_0);
-  IOWR_ALTERA_AVALON_PIO_DATA(SEG_1_BASE, seconds_display_1);
+  IOWR_ALTERA_AVALON_PIO_DATA(SECONDS_DISPLAY_0_BASE, seconds_display_0);
+  IOWR_ALTERA_AVALON_PIO_DATA(SECONDS_DISPLAY_1_BASE, seconds_display_1);
 
   // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_4_BASE, millis_display_0);
   // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_5_BASE, millis_display_1);
@@ -193,17 +192,17 @@ static void set_displays() {
 }
 
 static void stop_timer() {
-  const unsigned timer_ms_control = IORD_ALTERA_AVALON_TIMER_CONTROL(TIMER_MS_0_BASE)
+  const unsigned timer_control = IORD_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE)
     & ALTERA_AVALON_TIMER_CONTROL_STOP_MSK;
 
-  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_MS_0_BASE, timer_ms_control);
+  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, timer_control);
 }
 
 static void start_timer() {
-  const unsigned timer_ms_control = IORD_ALTERA_AVALON_TIMER_CONTROL(TIMER_MS_0_BASE)
+  const unsigned timer_control = IORD_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE)
     & ALTERA_AVALON_TIMER_CONTROL_START_MSK;
 
-  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_MS_0_BASE, timer_ms_control);
+  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE, timer_control);
 }
 
 static void set_timer(void* context) {
@@ -256,15 +255,15 @@ int main()
   }
 
   alt_ic_isr_register(
-    TIMER_MS_0_IRQ_INTERRUPT_CONTROLLER_ID,
-    TIMER_MS_0_IRQ,
+    TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,
+    TIMER_0_IRQ,
     set_timer,
     NULL,
     NULL
   );
 
   IOWR_ALTERA_AVALON_TIMER_CONTROL(
-    TIMER_MS_0_BASE,
+    TIMER_0_BASE,
     ALTERA_AVALON_TIMER_CONTROL_ITO_MSK
     | ALTERA_AVALON_TIMER_CONTROL_CONT_MSK);
 

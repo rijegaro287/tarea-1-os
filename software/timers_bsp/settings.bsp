@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Aug 13, 2023 5:03:56 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1691967836985</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Aug 13, 2023 8:00:19 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1691978419136</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/rijegaro/Documents/Github/tarea_1_os/software/timers_bsp</BspGeneratedLocation>
         <BspSettingsFile>./settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../platform.sopcinfo</SopcDesignFile>
@@ -876,36 +876,36 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>rom_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x00000FFF</addressRange>
-                <addressSpan>4096</addressSpan>
+                <addressRange>0x00000000 - 0x00007FFF</addressRange>
+                <addressSpan>32768</addressSpan>
                 <attributes>memory, non-volatile</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>ram_0</slaveDescriptor>
-                <addressRange>0x00010000 - 0x00010FFF</addressRange>
-                <addressSpan>4096</addressSpan>
+                <addressRange>0x00010000 - 0x00011FFF</addressRange>
+                <addressSpan>8192</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seg_0</slaveDescriptor>
+                <slaveDescriptor>minutes_display_0</slaveDescriptor>
                 <addressRange>0x00020000 - 0x0002000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seg_1</slaveDescriptor>
+                <slaveDescriptor>minutes_display_1</slaveDescriptor>
                 <addressRange>0x00030000 - 0x0003000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seg_2</slaveDescriptor>
+                <slaveDescriptor>seconds_display_0</slaveDescriptor>
                 <addressRange>0x00040000 - 0x0004000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seg_3</slaveDescriptor>
+                <slaveDescriptor>seconds_display_1</slaveDescriptor>
                 <addressRange>0x00050000 - 0x0005000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
@@ -917,14 +917,8 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>timer_ms_0</slaveDescriptor>
+                <slaveDescriptor>timer_0</slaveDescriptor>
                 <addressRange>0x00070000 - 0x0007001F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes>timer</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>timer_s_0</slaveDescriptor>
-                <addressRange>0x00080000 - 0x0008001F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>

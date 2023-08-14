@@ -6,7 +6,7 @@
    version="1.0"
    description=""
    tags=""
-   categories="" />
+   categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element clk_0
@@ -17,12 +17,43 @@
          type = "int";
       }
    }
+   element minutes_display_0
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element minutes_display_1
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
    element nios2_gen2_0
    {
       datum _sortIndex
       {
          value = "1";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
       }
    }
    element ram_0
@@ -51,33 +82,7 @@
          type = "boolean";
       }
    }
-   element seg_0
-   {
-      datum _sortIndex
-      {
-         value = "4";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element seg_1
-   {
-      datum _sortIndex
-      {
-         value = "5";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element seg_2
+   element seconds_display_0
    {
       datum _sortIndex
       {
@@ -90,7 +95,7 @@
          type = "boolean";
       }
    }
-   element seg_3
+   element seconds_display_1
    {
       datum _sortIndex
       {
@@ -116,26 +121,39 @@
          type = "boolean";
       }
    }
-   element timer_ms_0
+   element timer_0
    {
       datum _sortIndex
       {
          value = "9";
          type = "int";
       }
-   }
-   element timer_s_0
-   {
-      datum _sortIndex
+      datum sopceditor_expanded
       {
-         value = "10";
-         type = "int";
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element timer_0.irq
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+   }
+   element timer_0.reset
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
       }
    }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
- <parameter name="device" value="5CSEMA6F31C6" />
+ <parameter name="device" value="5CSEMA5F31C6" />
  <parameter name="deviceFamily" value="Cyclone V" />
  <parameter name="deviceSpeedGrade" value="6" />
  <parameter name="fabricMode" value="QSYS" />
@@ -146,7 +164,7 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="" />
+ <parameter name="projectName" value="tarea1.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
@@ -154,25 +172,25 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface
+   name="minutes_display_0_external_connection"
+   internal="minutes_display_0.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="minutes_display_1_external_connection"
+   internal="minutes_display_1.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <interface
-   name="seg_0_external_connection"
-   internal="seg_0.external_connection"
+   name="seconds_display_0_external_connection"
+   internal="seconds_display_0.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="seg_1_external_connection"
-   internal="seg_1.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="seg_2_external_connection"
-   internal="seg_2.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="seg_3_external_connection"
-   internal="seg_3.external_connection"
+   name="seconds_display_1_external_connection"
+   internal="seconds_display_1.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -187,13 +205,49 @@
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module
+   name="minutes_display_0"
+   kind="altera_avalon_pio"
+   version="21.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="minutes_display_1"
+   kind="altera_avalon_pio"
+   version="21.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
    name="nios2_gen2_0"
    kind="altera_nios2_gen2"
    version="21.1"
    enabled="1">
   <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
   <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
-  <parameter name="AUTO_DEVICE" value="5CSEMA6F31C6" />
+  <parameter name="AUTO_DEVICE" value="5CSEMA5F31C6" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
   <parameter name="bht_ramBlockType" value="Automatic" />
   <parameter name="breakOffset" value="32" />
@@ -207,10 +261,10 @@
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
-  <parameter name="dataAddrWidth" value="20" />
+  <parameter name="dataAddrWidth" value="19" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x11000' type='altera_avalon_onchip_memory2.s1' /><slave name='seg_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='seg_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='seg_2.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='seg_3.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='switches_0.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /><slave name='timer_ms_0.s1' start='0x70000' end='0x70020' type='altera_avalon_timer.s1' /><slave name='timer_s_0.s1' start='0x80000' end='0x80020' type='altera_avalon_timer.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x12000' type='altera_avalon_onchip_memory2.s1' /><slave name='minutes_display_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='minutes_display_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='seconds_display_0.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='seconds_display_1.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='switches_0.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /><slave name='timer_0.s1' start='0x70000' end='0x70020' type='altera_avalon_timer.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -248,15 +302,15 @@
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="impl" value="Tiny" />
-  <parameter name="instAddrWidth" value="12" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='rom_0.s1' start='0x0' end='0x1000' type='altera_avalon_onchip_memory2.s1' /></address-map>]]></parameter>
+  <parameter name="instAddrWidth" value="15" />
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='rom_0.s1' start='0x0' end='0x8000' type='altera_avalon_onchip_memory2.s1' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="instructionMasterHighPerformanceMapParam" value="" />
   <parameter name="instruction_master_high_performance_paddr_base" value="0" />
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="3" />
+  <parameter name="internalIrqMaskSystemInfo" value="1" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -388,7 +442,7 @@
   <parameter name="initMemContent" value="true" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="4096" />
+  <parameter name="memorySize" value="8192" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
   <parameter name="resetrequest_enabled" value="true" />
   <parameter name="simAllowMRAMContentsFile" value="false" />
@@ -420,7 +474,7 @@
   <parameter name="initMemContent" value="true" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="4096" />
+  <parameter name="memorySize" value="32768" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
   <parameter name="resetrequest_enabled" value="true" />
   <parameter name="simAllowMRAMContentsFile" value="false" />
@@ -432,7 +486,11 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="false" />
  </module>
- <module name="seg_0" kind="altera_avalon_pio" version="21.1" enabled="1">
+ <module
+   name="seconds_display_0"
+   kind="altera_avalon_pio"
+   version="21.1"
+   enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -446,35 +504,11 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="7" />
  </module>
- <module name="seg_1" kind="altera_avalon_pio" version="21.1" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="7" />
- </module>
- <module name="seg_2" kind="altera_avalon_pio" version="21.1" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="7" />
- </module>
- <module name="seg_3" kind="altera_avalon_pio" version="21.1" enabled="1">
+ <module
+   name="seconds_display_1"
+   kind="altera_avalon_pio"
+   version="21.1"
+   enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -500,13 +534,9 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="4" />
+  <parameter name="width" value="3" />
  </module>
- <module
-   name="timer_ms_0"
-   kind="altera_avalon_timer"
-   version="21.1"
-   enabled="1">
+ <module name="timer_0" kind="altera_avalon_timer" version="21.1" enabled="1">
   <parameter name="alwaysRun" value="true" />
   <parameter name="counterSize" value="32" />
   <parameter name="fixedPeriod" value="true" />
@@ -514,22 +544,6 @@
   <parameter name="periodUnits" value="MSEC" />
   <parameter name="resetOutput" value="false" />
   <parameter name="snapshot" value="false" />
-  <parameter name="systemFrequency" value="50000000" />
-  <parameter name="timeoutPulseOutput" value="false" />
-  <parameter name="watchdogPulse" value="2" />
- </module>
- <module
-   name="timer_s_0"
-   kind="altera_avalon_timer"
-   version="21.1"
-   enabled="1">
-  <parameter name="alwaysRun" value="false" />
-  <parameter name="counterSize" value="32" />
-  <parameter name="fixedPeriod" value="false" />
-  <parameter name="period" value="1" />
-  <parameter name="periodUnits" value="SEC" />
-  <parameter name="resetOutput" value="false" />
-  <parameter name="snapshot" value="true" />
   <parameter name="systemFrequency" value="50000000" />
   <parameter name="timeoutPulseOutput" value="false" />
   <parameter name="watchdogPulse" value="2" />
@@ -547,7 +561,7 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="seg_0.s1">
+   end="minutes_display_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00020000" />
   <parameter name="defaultConnection" value="false" />
@@ -556,7 +570,7 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="seg_1.s1">
+   end="minutes_display_1.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00030000" />
   <parameter name="defaultConnection" value="false" />
@@ -565,7 +579,7 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="seg_2.s1">
+   end="seconds_display_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00040000" />
   <parameter name="defaultConnection" value="false" />
@@ -574,7 +588,7 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="seg_3.s1">
+   end="seconds_display_1.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00050000" />
   <parameter name="defaultConnection" value="false" />
@@ -592,18 +606,9 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="timer_ms_0.s1">
+   end="timer_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00070000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="21.1"
-   start="nios2_gen2_0.data_master"
-   end="timer_s_0.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00080000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -615,34 +620,58 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="clock" version="21.1" start="clk_0.clk" end="seg_0.clk" />
- <connection kind="clock" version="21.1" start="clk_0.clk" end="seg_1.clk" />
- <connection kind="clock" version="21.1" start="clk_0.clk" end="seg_2.clk" />
- <connection kind="clock" version="21.1" start="clk_0.clk" end="seg_3.clk" />
+ <connection
+   kind="clock"
+   version="21.1"
+   start="clk_0.clk"
+   end="minutes_display_0.clk" />
+ <connection
+   kind="clock"
+   version="21.1"
+   start="clk_0.clk"
+   end="minutes_display_1.clk" />
+ <connection
+   kind="clock"
+   version="21.1"
+   start="clk_0.clk"
+   end="seconds_display_0.clk" />
+ <connection
+   kind="clock"
+   version="21.1"
+   start="clk_0.clk"
+   end="seconds_display_1.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="switches_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
- <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_ms_0.clk" />
- <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_s_0.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="rom_0.clk1" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="ram_0.clk1" />
  <connection
    kind="interrupt"
    version="21.1"
    start="nios2_gen2_0.irq"
-   end="timer_ms_0.irq">
+   end="timer_0.irq">
   <parameter name="irqNumber" value="0" />
  </connection>
  <connection
-   kind="interrupt"
+   kind="reset"
    version="21.1"
-   start="nios2_gen2_0.irq"
-   end="timer_s_0.irq">
-  <parameter name="irqNumber" value="1" />
- </connection>
- <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_0.reset" />
- <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_1.reset" />
- <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_2.reset" />
- <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_3.reset" />
+   start="clk_0.clk_reset"
+   end="minutes_display_0.reset" />
+ <connection
+   kind="reset"
+   version="21.1"
+   start="clk_0.clk_reset"
+   end="minutes_display_1.reset" />
+ <connection
+   kind="reset"
+   version="21.1"
+   start="clk_0.clk_reset"
+   end="seconds_display_0.reset" />
+ <connection
+   kind="reset"
+   version="21.1"
+   start="clk_0.clk_reset"
+   end="seconds_display_1.reset" />
  <connection
    kind="reset"
    version="21.1"
@@ -657,12 +686,7 @@
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="timer_ms_0.reset" />
- <connection
-   kind="reset"
-   version="21.1"
-   start="clk_0.clk_reset"
-   end="timer_s_0.reset" />
+   end="timer_0.reset" />
  <connection
    kind="reset"
    version="21.1"

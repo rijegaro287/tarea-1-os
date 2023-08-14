@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'platform'
  * SOPC Builder design path: ../../platform.sopcinfo
  *
- * Generated: Sun Aug 13 17:03:57 CST 2023
+ * Generated: Sun Aug 13 20:00:19 CST 2023
  */
 
 /*
@@ -66,8 +66,7 @@
  */
 
 ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( NIOS2_GEN2_0, nios2_gen2_0);
-ALTERA_AVALON_TIMER_INSTANCE ( TIMER_MS_0, timer_ms_0);
-ALTERA_AVALON_TIMER_INSTANCE ( TIMER_S_0, timer_s_0);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
 
 /*
  * Initialize the interrupt controller devices
@@ -90,6 +89,5 @@ void alt_irq_init ( const void* base )
 
 void alt_sys_init( void )
 {
-    ALTERA_AVALON_TIMER_INIT ( TIMER_MS_0, timer_ms_0);
-    ALTERA_AVALON_TIMER_INIT ( TIMER_S_0, timer_s_0);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
 }

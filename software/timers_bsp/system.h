@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'platform'
  * SOPC Builder design path: ../../platform.sopcinfo
  *
- * Generated: Sun Aug 13 17:03:57 CST 2023
+ * Generated: Sun Aug 13 20:00:19 CST 2023
  */
 
 /*
@@ -68,7 +68,7 @@
 #define ALT_CPU_CPU_ID_SIZE 1
 #define ALT_CPU_CPU_ID_VALUE 0x00000000
 #define ALT_CPU_CPU_IMPLEMENTATION "tiny"
-#define ALT_CPU_DATA_ADDR_WIDTH 0x14
+#define ALT_CPU_DATA_ADDR_WIDTH 0x13
 #define ALT_CPU_DCACHE_LINE_SIZE 0
 #define ALT_CPU_DCACHE_LINE_SIZE_LOG2 0
 #define ALT_CPU_DCACHE_SIZE 0
@@ -87,7 +87,7 @@
 #define ALT_CPU_ICACHE_LINE_SIZE 0
 #define ALT_CPU_ICACHE_LINE_SIZE_LOG2 0
 #define ALT_CPU_ICACHE_SIZE 0
-#define ALT_CPU_INST_ADDR_WIDTH 0xc
+#define ALT_CPU_INST_ADDR_WIDTH 0xf
 #define ALT_CPU_NAME "nios2_gen2_0"
 #define ALT_CPU_OCI_VERSION 1
 #define ALT_CPU_RESET_ADDR 0x00000000
@@ -105,7 +105,7 @@
 #define NIOS2_CPU_ID_SIZE 1
 #define NIOS2_CPU_ID_VALUE 0x00000000
 #define NIOS2_CPU_IMPLEMENTATION "tiny"
-#define NIOS2_DATA_ADDR_WIDTH 0x14
+#define NIOS2_DATA_ADDR_WIDTH 0x13
 #define NIOS2_DCACHE_LINE_SIZE 0
 #define NIOS2_DCACHE_LINE_SIZE_LOG2 0
 #define NIOS2_DCACHE_SIZE 0
@@ -123,7 +123,7 @@
 #define NIOS2_ICACHE_LINE_SIZE 0
 #define NIOS2_ICACHE_LINE_SIZE_LOG2 0
 #define NIOS2_ICACHE_SIZE 0
-#define NIOS2_INST_ADDR_WIDTH 0xc
+#define NIOS2_INST_ADDR_WIDTH 0xf
 #define NIOS2_OCI_VERSION 1
 #define NIOS2_RESET_ADDR 0x00000000
 
@@ -181,6 +181,60 @@
 
 
 /*
+ * minutes_display_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_minutes_display_0 altera_avalon_pio
+#define MINUTES_DISPLAY_0_BASE 0x20000
+#define MINUTES_DISPLAY_0_BIT_CLEARING_EDGE_REGISTER 0
+#define MINUTES_DISPLAY_0_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define MINUTES_DISPLAY_0_CAPTURE 0
+#define MINUTES_DISPLAY_0_DATA_WIDTH 7
+#define MINUTES_DISPLAY_0_DO_TEST_BENCH_WIRING 0
+#define MINUTES_DISPLAY_0_DRIVEN_SIM_VALUE 0
+#define MINUTES_DISPLAY_0_EDGE_TYPE "NONE"
+#define MINUTES_DISPLAY_0_FREQ 50000000
+#define MINUTES_DISPLAY_0_HAS_IN 0
+#define MINUTES_DISPLAY_0_HAS_OUT 1
+#define MINUTES_DISPLAY_0_HAS_TRI 0
+#define MINUTES_DISPLAY_0_IRQ -1
+#define MINUTES_DISPLAY_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define MINUTES_DISPLAY_0_IRQ_TYPE "NONE"
+#define MINUTES_DISPLAY_0_NAME "/dev/minutes_display_0"
+#define MINUTES_DISPLAY_0_RESET_VALUE 0
+#define MINUTES_DISPLAY_0_SPAN 16
+#define MINUTES_DISPLAY_0_TYPE "altera_avalon_pio"
+
+
+/*
+ * minutes_display_1 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_minutes_display_1 altera_avalon_pio
+#define MINUTES_DISPLAY_1_BASE 0x30000
+#define MINUTES_DISPLAY_1_BIT_CLEARING_EDGE_REGISTER 0
+#define MINUTES_DISPLAY_1_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define MINUTES_DISPLAY_1_CAPTURE 0
+#define MINUTES_DISPLAY_1_DATA_WIDTH 7
+#define MINUTES_DISPLAY_1_DO_TEST_BENCH_WIRING 0
+#define MINUTES_DISPLAY_1_DRIVEN_SIM_VALUE 0
+#define MINUTES_DISPLAY_1_EDGE_TYPE "NONE"
+#define MINUTES_DISPLAY_1_FREQ 50000000
+#define MINUTES_DISPLAY_1_HAS_IN 0
+#define MINUTES_DISPLAY_1_HAS_OUT 1
+#define MINUTES_DISPLAY_1_HAS_TRI 0
+#define MINUTES_DISPLAY_1_IRQ -1
+#define MINUTES_DISPLAY_1_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define MINUTES_DISPLAY_1_IRQ_TYPE "NONE"
+#define MINUTES_DISPLAY_1_NAME "/dev/minutes_display_1"
+#define MINUTES_DISPLAY_1_RESET_VALUE 0
+#define MINUTES_DISPLAY_1_SPAN 16
+#define MINUTES_DISPLAY_1_TYPE "altera_avalon_pio"
+
+
+/*
  * ram_0 configuration
  *
  */
@@ -203,8 +257,8 @@
 #define RAM_0_READ_DURING_WRITE_MODE "DONT_CARE"
 #define RAM_0_SINGLE_CLOCK_OP 0
 #define RAM_0_SIZE_MULTIPLE 1
-#define RAM_0_SIZE_VALUE 4096
-#define RAM_0_SPAN 4096
+#define RAM_0_SIZE_VALUE 8192
+#define RAM_0_SPAN 8192
 #define RAM_0_TYPE "altera_avalon_onchip_memory2"
 #define RAM_0_WRITABLE 1
 
@@ -232,118 +286,64 @@
 #define ROM_0_READ_DURING_WRITE_MODE "DONT_CARE"
 #define ROM_0_SINGLE_CLOCK_OP 0
 #define ROM_0_SIZE_MULTIPLE 1
-#define ROM_0_SIZE_VALUE 4096
-#define ROM_0_SPAN 4096
+#define ROM_0_SIZE_VALUE 32768
+#define ROM_0_SPAN 32768
 #define ROM_0_TYPE "altera_avalon_onchip_memory2"
 #define ROM_0_WRITABLE 0
 
 
 /*
- * seg_0 configuration
+ * seconds_display_0 configuration
  *
  */
 
-#define ALT_MODULE_CLASS_seg_0 altera_avalon_pio
-#define SEG_0_BASE 0x20000
-#define SEG_0_BIT_CLEARING_EDGE_REGISTER 0
-#define SEG_0_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define SEG_0_CAPTURE 0
-#define SEG_0_DATA_WIDTH 7
-#define SEG_0_DO_TEST_BENCH_WIRING 0
-#define SEG_0_DRIVEN_SIM_VALUE 0
-#define SEG_0_EDGE_TYPE "NONE"
-#define SEG_0_FREQ 50000000
-#define SEG_0_HAS_IN 0
-#define SEG_0_HAS_OUT 1
-#define SEG_0_HAS_TRI 0
-#define SEG_0_IRQ -1
-#define SEG_0_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SEG_0_IRQ_TYPE "NONE"
-#define SEG_0_NAME "/dev/seg_0"
-#define SEG_0_RESET_VALUE 0
-#define SEG_0_SPAN 16
-#define SEG_0_TYPE "altera_avalon_pio"
+#define ALT_MODULE_CLASS_seconds_display_0 altera_avalon_pio
+#define SECONDS_DISPLAY_0_BASE 0x40000
+#define SECONDS_DISPLAY_0_BIT_CLEARING_EDGE_REGISTER 0
+#define SECONDS_DISPLAY_0_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SECONDS_DISPLAY_0_CAPTURE 0
+#define SECONDS_DISPLAY_0_DATA_WIDTH 7
+#define SECONDS_DISPLAY_0_DO_TEST_BENCH_WIRING 0
+#define SECONDS_DISPLAY_0_DRIVEN_SIM_VALUE 0
+#define SECONDS_DISPLAY_0_EDGE_TYPE "NONE"
+#define SECONDS_DISPLAY_0_FREQ 50000000
+#define SECONDS_DISPLAY_0_HAS_IN 0
+#define SECONDS_DISPLAY_0_HAS_OUT 1
+#define SECONDS_DISPLAY_0_HAS_TRI 0
+#define SECONDS_DISPLAY_0_IRQ -1
+#define SECONDS_DISPLAY_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SECONDS_DISPLAY_0_IRQ_TYPE "NONE"
+#define SECONDS_DISPLAY_0_NAME "/dev/seconds_display_0"
+#define SECONDS_DISPLAY_0_RESET_VALUE 0
+#define SECONDS_DISPLAY_0_SPAN 16
+#define SECONDS_DISPLAY_0_TYPE "altera_avalon_pio"
 
 
 /*
- * seg_1 configuration
+ * seconds_display_1 configuration
  *
  */
 
-#define ALT_MODULE_CLASS_seg_1 altera_avalon_pio
-#define SEG_1_BASE 0x30000
-#define SEG_1_BIT_CLEARING_EDGE_REGISTER 0
-#define SEG_1_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define SEG_1_CAPTURE 0
-#define SEG_1_DATA_WIDTH 7
-#define SEG_1_DO_TEST_BENCH_WIRING 0
-#define SEG_1_DRIVEN_SIM_VALUE 0
-#define SEG_1_EDGE_TYPE "NONE"
-#define SEG_1_FREQ 50000000
-#define SEG_1_HAS_IN 0
-#define SEG_1_HAS_OUT 1
-#define SEG_1_HAS_TRI 0
-#define SEG_1_IRQ -1
-#define SEG_1_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SEG_1_IRQ_TYPE "NONE"
-#define SEG_1_NAME "/dev/seg_1"
-#define SEG_1_RESET_VALUE 0
-#define SEG_1_SPAN 16
-#define SEG_1_TYPE "altera_avalon_pio"
-
-
-/*
- * seg_2 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_seg_2 altera_avalon_pio
-#define SEG_2_BASE 0x40000
-#define SEG_2_BIT_CLEARING_EDGE_REGISTER 0
-#define SEG_2_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define SEG_2_CAPTURE 0
-#define SEG_2_DATA_WIDTH 7
-#define SEG_2_DO_TEST_BENCH_WIRING 0
-#define SEG_2_DRIVEN_SIM_VALUE 0
-#define SEG_2_EDGE_TYPE "NONE"
-#define SEG_2_FREQ 50000000
-#define SEG_2_HAS_IN 0
-#define SEG_2_HAS_OUT 1
-#define SEG_2_HAS_TRI 0
-#define SEG_2_IRQ -1
-#define SEG_2_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SEG_2_IRQ_TYPE "NONE"
-#define SEG_2_NAME "/dev/seg_2"
-#define SEG_2_RESET_VALUE 0
-#define SEG_2_SPAN 16
-#define SEG_2_TYPE "altera_avalon_pio"
-
-
-/*
- * seg_3 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_seg_3 altera_avalon_pio
-#define SEG_3_BASE 0x50000
-#define SEG_3_BIT_CLEARING_EDGE_REGISTER 0
-#define SEG_3_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define SEG_3_CAPTURE 0
-#define SEG_3_DATA_WIDTH 7
-#define SEG_3_DO_TEST_BENCH_WIRING 0
-#define SEG_3_DRIVEN_SIM_VALUE 0
-#define SEG_3_EDGE_TYPE "NONE"
-#define SEG_3_FREQ 50000000
-#define SEG_3_HAS_IN 0
-#define SEG_3_HAS_OUT 1
-#define SEG_3_HAS_TRI 0
-#define SEG_3_IRQ -1
-#define SEG_3_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SEG_3_IRQ_TYPE "NONE"
-#define SEG_3_NAME "/dev/seg_3"
-#define SEG_3_RESET_VALUE 0
-#define SEG_3_SPAN 16
-#define SEG_3_TYPE "altera_avalon_pio"
+#define ALT_MODULE_CLASS_seconds_display_1 altera_avalon_pio
+#define SECONDS_DISPLAY_1_BASE 0x50000
+#define SECONDS_DISPLAY_1_BIT_CLEARING_EDGE_REGISTER 0
+#define SECONDS_DISPLAY_1_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SECONDS_DISPLAY_1_CAPTURE 0
+#define SECONDS_DISPLAY_1_DATA_WIDTH 7
+#define SECONDS_DISPLAY_1_DO_TEST_BENCH_WIRING 0
+#define SECONDS_DISPLAY_1_DRIVEN_SIM_VALUE 0
+#define SECONDS_DISPLAY_1_EDGE_TYPE "NONE"
+#define SECONDS_DISPLAY_1_FREQ 50000000
+#define SECONDS_DISPLAY_1_HAS_IN 0
+#define SECONDS_DISPLAY_1_HAS_OUT 1
+#define SECONDS_DISPLAY_1_HAS_TRI 0
+#define SECONDS_DISPLAY_1_IRQ -1
+#define SECONDS_DISPLAY_1_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SECONDS_DISPLAY_1_IRQ_TYPE "NONE"
+#define SECONDS_DISPLAY_1_NAME "/dev/seconds_display_1"
+#define SECONDS_DISPLAY_1_RESET_VALUE 0
+#define SECONDS_DISPLAY_1_SPAN 16
+#define SECONDS_DISPLAY_1_TYPE "altera_avalon_pio"
 
 
 /*
@@ -356,7 +356,7 @@
 #define SWITCHES_0_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCHES_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCHES_0_CAPTURE 0
-#define SWITCHES_0_DATA_WIDTH 4
+#define SWITCHES_0_DATA_WIDTH 3
 #define SWITCHES_0_DO_TEST_BENCH_WIRING 0
 #define SWITCHES_0_DRIVEN_SIM_VALUE 0
 #define SWITCHES_0_EDGE_TYPE "NONE"
@@ -374,54 +374,28 @@
 
 
 /*
- * timer_ms_0 configuration
+ * timer_0 configuration
  *
  */
 
-#define ALT_MODULE_CLASS_timer_ms_0 altera_avalon_timer
-#define TIMER_MS_0_ALWAYS_RUN 1
-#define TIMER_MS_0_BASE 0x70000
-#define TIMER_MS_0_COUNTER_SIZE 32
-#define TIMER_MS_0_FIXED_PERIOD 1
-#define TIMER_MS_0_FREQ 50000000
-#define TIMER_MS_0_IRQ 0
-#define TIMER_MS_0_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define TIMER_MS_0_LOAD_VALUE 49999
-#define TIMER_MS_0_MULT 0.001
-#define TIMER_MS_0_NAME "/dev/timer_ms_0"
-#define TIMER_MS_0_PERIOD 1
-#define TIMER_MS_0_PERIOD_UNITS "ms"
-#define TIMER_MS_0_RESET_OUTPUT 0
-#define TIMER_MS_0_SNAPSHOT 0
-#define TIMER_MS_0_SPAN 32
-#define TIMER_MS_0_TICKS_PER_SEC 1000
-#define TIMER_MS_0_TIMEOUT_PULSE_OUTPUT 0
-#define TIMER_MS_0_TYPE "altera_avalon_timer"
-
-
-/*
- * timer_s_0 configuration
- *
- */
-
-#define ALT_MODULE_CLASS_timer_s_0 altera_avalon_timer
-#define TIMER_S_0_ALWAYS_RUN 0
-#define TIMER_S_0_BASE 0x80000
-#define TIMER_S_0_COUNTER_SIZE 32
-#define TIMER_S_0_FIXED_PERIOD 0
-#define TIMER_S_0_FREQ 50000000
-#define TIMER_S_0_IRQ 1
-#define TIMER_S_0_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define TIMER_S_0_LOAD_VALUE 49999999
-#define TIMER_S_0_MULT 1.0
-#define TIMER_S_0_NAME "/dev/timer_s_0"
-#define TIMER_S_0_PERIOD 1
-#define TIMER_S_0_PERIOD_UNITS "s"
-#define TIMER_S_0_RESET_OUTPUT 0
-#define TIMER_S_0_SNAPSHOT 1
-#define TIMER_S_0_SPAN 32
-#define TIMER_S_0_TICKS_PER_SEC 1
-#define TIMER_S_0_TIMEOUT_PULSE_OUTPUT 0
-#define TIMER_S_0_TYPE "altera_avalon_timer"
+#define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
+#define TIMER_0_ALWAYS_RUN 1
+#define TIMER_0_BASE 0x70000
+#define TIMER_0_COUNTER_SIZE 32
+#define TIMER_0_FIXED_PERIOD 1
+#define TIMER_0_FREQ 50000000
+#define TIMER_0_IRQ 0
+#define TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_0_LOAD_VALUE 49999
+#define TIMER_0_MULT 0.001
+#define TIMER_0_NAME "/dev/timer_0"
+#define TIMER_0_PERIOD 1
+#define TIMER_0_PERIOD_UNITS "ms"
+#define TIMER_0_RESET_OUTPUT 0
+#define TIMER_0_SNAPSHOT 0
+#define TIMER_0_SPAN 32
+#define TIMER_0_TICKS_PER_SEC 1000
+#define TIMER_0_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_0_TYPE "altera_avalon_timer"
 
 #endif /* __SYSTEM_H_ */
