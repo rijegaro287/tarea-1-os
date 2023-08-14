@@ -116,6 +116,22 @@
          type = "boolean";
       }
    }
+   element timer_ms_0
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element timer_s_0
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -191,10 +207,10 @@
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
-  <parameter name="dataAddrWidth" value="19" />
+  <parameter name="dataAddrWidth" value="20" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x11000' type='altera_avalon_onchip_memory2.s1' /><slave name='seg_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='seg_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='seg_2.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='seg_3.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='switches_0.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x11000' type='altera_avalon_onchip_memory2.s1' /><slave name='seg_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='seg_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='seg_2.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='seg_3.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='switches_0.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /><slave name='timer_ms_0.s1' start='0x70000' end='0x70020' type='altera_avalon_timer.s1' /><slave name='timer_s_0.s1' start='0x80000' end='0x80020' type='altera_avalon_timer.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -240,7 +256,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="0" />
+  <parameter name="internalIrqMaskSystemInfo" value="3" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -358,7 +374,7 @@
    version="21.1"
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName" value="platform_ram_0" />
+  <parameter name="autoInitializationFileName" value="$${FILENAME}_ram_0" />
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
@@ -390,7 +406,7 @@
    version="21.1"
    enabled="1">
   <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName" value="platform_rom_0" />
+  <parameter name="autoInitializationFileName" value="$${FILENAME}_rom_0" />
   <parameter name="blockType" value="AUTO" />
   <parameter name="copyInitFile" value="false" />
   <parameter name="dataWidth" value="32" />
@@ -486,6 +502,38 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="4" />
  </module>
+ <module
+   name="timer_ms_0"
+   kind="altera_avalon_timer"
+   version="21.1"
+   enabled="1">
+  <parameter name="alwaysRun" value="true" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="true" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="MSEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="false" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
+ <module
+   name="timer_s_0"
+   kind="altera_avalon_timer"
+   version="21.1"
+   enabled="1">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="false" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="SEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
  <connection
    kind="avalon"
    version="21.1"
@@ -543,6 +591,24 @@
  <connection
    kind="avalon"
    version="21.1"
+   start="nios2_gen2_0.data_master"
+   end="timer_ms_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00070000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="21.1"
+   start="nios2_gen2_0.data_master"
+   end="timer_s_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00080000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="21.1"
    start="nios2_gen2_0.instruction_master"
    end="rom_0.s1">
   <parameter name="arbitrationPriority" value="1" />
@@ -555,8 +621,24 @@
  <connection kind="clock" version="21.1" start="clk_0.clk" end="seg_3.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="switches_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_ms_0.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_s_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="rom_0.clk1" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="ram_0.clk1" />
+ <connection
+   kind="interrupt"
+   version="21.1"
+   start="nios2_gen2_0.irq"
+   end="timer_ms_0.irq">
+  <parameter name="irqNumber" value="0" />
+ </connection>
+ <connection
+   kind="interrupt"
+   version="21.1"
+   start="nios2_gen2_0.irq"
+   end="timer_s_0.irq">
+  <parameter name="irqNumber" value="1" />
+ </connection>
  <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_0.reset" />
  <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_1.reset" />
  <connection kind="reset" version="21.1" start="clk_0.clk_reset" end="seg_2.reset" />
@@ -571,6 +653,16 @@
    version="21.1"
    start="clk_0.clk_reset"
    end="nios2_gen2_0.reset" />
+ <connection
+   kind="reset"
+   version="21.1"
+   start="clk_0.clk_reset"
+   end="timer_ms_0.reset" />
+ <connection
+   kind="reset"
+   version="21.1"
+   start="clk_0.clk_reset"
+   end="timer_s_0.reset" />
  <connection
    kind="reset"
    version="21.1"
