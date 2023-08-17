@@ -19,4 +19,4 @@ module timers(
     .seconds_display_1_external_connection_export(seconds_display_1)
   );
 
-endmodule;
+endmodule

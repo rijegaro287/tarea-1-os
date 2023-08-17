@@ -119,7 +119,6 @@ static unsigned seconds_display_1 = DISPLAY_OFF;
 
 static unsigned millis_display_0 = DISPLAY_OFF;
 static unsigned millis_display_1 = DISPLAY_OFF;
-static unsigned millis_display_2 = DISPLAY_OFF;
 
 static unsigned get_display_bits(unsigned value) {
   unsigned display_bits;
@@ -176,9 +175,8 @@ static void set_displays() {
   seconds_display_0 = get_display_bits(seconds % 10);
   seconds_display_1 = get_display_bits(seconds / 10);
 
-  millis_display_0 = get_display_bits(millis % 10);
-  millis_display_1 = get_display_bits((millis / 10) % 10);
-  millis_display_2 = get_display_bits((millis / 100) % 10);
+  millis_display_0 = get_display_bits((millis / 10) % 10);
+  millis_display_1 = get_display_bits((millis / 100) % 10);
 
   // IOWR_ALTERA_AVALON_PIO_DATA(MINUTES_DISPLAY_0_BASE, minutes_display_0);
   // IOWR_ALTERA_AVALON_PIO_DATA(MINUTES_DISPLAY_1_BASE, minutes_display_1);
@@ -188,7 +186,6 @@ static void set_displays() {
 
   // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_4_BASE, millis_display_0);
   // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_5_BASE, millis_display_1);
-  // IOWR_ALTERA_AVALON_PIO_DATA(SEGMENT_DISPLAY_6_BASE, millis_display_2);
 }
 
 static void stop_timer() {
@@ -229,8 +226,8 @@ static void set_timer(void* context) {
 
 int main()
 {
-  mode = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & 0b0011;
-  stop = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & 0b0100;
+  mode = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & 0b011;
+  stop = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & 0b100;
 
   if (stop) {
     stop_timer();

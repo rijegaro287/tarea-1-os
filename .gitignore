@@ -3,7 +3,9 @@
 /.qsys_edit
 /db
 /output_files
+/incremental_db
 /platform
+/simulation
 
 /software/timers/obj
 /software/timers/mem_init
