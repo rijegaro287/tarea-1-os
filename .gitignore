@@ -7,13 +7,13 @@
 /platform
 /simulation
 
-/software/timers/obj
-/software/timers/mem_init
-/software/timers/timers.elf
-/software/timers/timers.map
-/software/timers/timers.objdump
+/software/tarea_1/obj
+/software/tarea_1/mem_init
+/software/tarea_1/tarea_1.elf
+/software/tarea_1/tarea_1.map
+/software/tarea_1/tarea_1.objdump
 
-/software/timers_bsp/obj
-/software/timers_bsp/libhal_bsp.a
+/software/tarea_1_bsp/obj
+/software/tarea_1_bsp/libhal_bsp.a
 
 **/*.sv.bak

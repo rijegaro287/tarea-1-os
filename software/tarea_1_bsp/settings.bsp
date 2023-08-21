@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Aug 13, 2023 8:00:19 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1691978419136</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/rijegaro/Documents/Github/tarea_1_os/software/timers_bsp</BspGeneratedLocation>
-        <BspSettingsFile>./settings.bsp</BspSettingsFile>
+        <BspGeneratedTimeStamp>Aug 20, 2023 8:09:02 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1692583742486</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>/home/rijegaro/Documents/Github/tarea_1_os/software/tarea_1_bsp</BspGeneratedLocation>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../platform.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_gen2_0</Cpu>
@@ -876,14 +876,14 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>rom_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x00007FFF</addressRange>
-                <addressSpan>32768</addressSpan>
+                <addressRange>0x00000000 - 0x00001FFF</addressRange>
+                <addressSpan>8192</addressSpan>
                 <attributes>memory, non-volatile</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>ram_0</slaveDescriptor>
-                <addressRange>0x00010000 - 0x00011FFF</addressRange>
-                <addressSpan>8192</addressSpan>
+                <addressRange>0x00010000 - 0x00010FFF</addressRange>
+                <addressSpan>4096</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
@@ -911,16 +911,28 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>switches_0</slaveDescriptor>
+                <slaveDescriptor>millis_display_0</slaveDescriptor>
                 <addressRange>0x00060000 - 0x0006000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>millis_display_1</slaveDescriptor>
+                <addressRange>0x00070000 - 0x0007000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>timer_0</slaveDescriptor>
-                <addressRange>0x00070000 - 0x0007001F</addressRange>
+                <addressRange>0x00080000 - 0x0008001F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>switches_0</slaveDescriptor>
+                <addressRange>0x00090000 - 0x0009000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>

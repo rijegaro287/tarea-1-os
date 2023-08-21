@@ -1,10 +1,10 @@
 /*
- * linker.h - Linker script mapping information
+ * alt_sys_init.c - HAL initialization source
  *
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'platform'
  * SOPC Builder design path: ../../platform.sopcinfo
  *
- * Generated: Sun Aug 13 20:00:19 CST 2023
+ * Generated: Sun Aug 20 10:43:36 CST 2023
  */
 
 /*
@@ -48,57 +48,46 @@
  * of California and by the laws of the United States of America.
  */
 
-#ifndef __LINKER_H_
-#define __LINKER_H_
+#include "system.h"
+#include "sys/alt_irq.h"
+#include "sys/alt_sys_init.h"
 
-
-/*
- * BSP controls alt_load() behavior in crt0.
- *
- */
-
-#define ALT_LOAD_EXPLICITLY_CONTROLLED
-
+#include <stddef.h>
 
 /*
- * Base address and span (size in bytes) of each linker region
- *
+ * Device headers
  */
 
-#define RAM_0_REGION_BASE 0x10000
-#define RAM_0_REGION_SPAN 8192
-#define RESET_REGION_BASE 0x0
-#define RESET_REGION_SPAN 32
-#define ROM_0_REGION_BASE 0x20
-#define ROM_0_REGION_SPAN 32736
-
+#include "altera_nios2_gen2_irq.h"
+#include "altera_avalon_timer.h"
 
 /*
- * Devices associated with code sections
- *
+ * Allocate the device storage
  */
 
-#define ALT_EXCEPTIONS_DEVICE ROM_0
-#define ALT_RESET_DEVICE ROM_0
-#define ALT_RODATA_DEVICE RAM_0
-#define ALT_RWDATA_DEVICE RAM_0
-#define ALT_TEXT_DEVICE ROM_0
-
+ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( NIOS2_GEN2_0, nios2_gen2_0);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
 
 /*
- * Initialization code at the reset address is allowed (e.g. no external bootloader).
- *
+ * Initialize the interrupt controller devices
+ * and then enable interrupts in the CPU.
+ * Called before alt_sys_init().
+ * The "base" parameter is ignored and only
+ * present for backwards-compatibility.
  */
 
-#define ALT_ALLOW_CODE_AT_RESET
-
+void alt_irq_init ( const void* base )
+{
+    ALTERA_NIOS2_GEN2_IRQ_INIT ( NIOS2_GEN2_0, nios2_gen2_0);
+    alt_irq_cpu_enable_interrupts();
+}
 
 /*
- * The alt_load() facility is called from crt0 to copy sections into RAM.
- *
+ * Initialize the non-interrupt controller devices.
+ * Called after alt_irq_init().
  */
 
-#define ALT_LOAD_COPY_RODATA
-#define ALT_LOAD_COPY_RWDATA
-
-#endif /* __LINKER_H_ */
+void alt_sys_init( void )
+{
+    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
+}

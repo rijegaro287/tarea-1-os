@@ -87,7 +87,7 @@ ACDS_VERSION := 21.1
 # Define path to the application ELF. 
 # It may be used by the makefile fragments so is defined before including them. 
 # 
-ELF := timers.elf
+ELF := tarea_1.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS := main.c
@@ -125,7 +125,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := ../timers_bsp/
+BSP_ROOT_DIR := ../tarea_1_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
