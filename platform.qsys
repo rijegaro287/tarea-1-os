@@ -17,20 +17,7 @@
          type = "int";
       }
    }
-   element millis_display_0
-   {
-      datum _sortIndex
-      {
-         value = "8";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element millis_display_1
+   element display_0
    {
       datum _sortIndex
       {
@@ -43,11 +30,11 @@
          type = "boolean";
       }
    }
-   element minutes_display_0
+   element display_1
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "8";
          type = "int";
       }
       datum sopceditor_expanded
@@ -56,11 +43,50 @@
          type = "boolean";
       }
    }
-   element minutes_display_1
+   element display_2
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element display_3
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element display_4
    {
       datum _sortIndex
       {
          value = "5";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element display_5
+   {
+      datum _sortIndex
+      {
+         value = "4";
          type = "int";
       }
       datum sopceditor_expanded
@@ -100,32 +126,6 @@
       datum _sortIndex
       {
          value = "2";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element seconds_display_0
-   {
-      datum _sortIndex
-      {
-         value = "6";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element seconds_display_1
-   {
-      datum _sortIndex
-      {
-         value = "7";
          type = "int";
       }
       datum sopceditor_expanded
@@ -183,36 +183,36 @@
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
-   name="millis_display_0_external_connection"
-   internal="millis_display_0.external_connection"
+   name="display_0_external_connection"
+   internal="display_0.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="millis_display_1_external_connection"
-   internal="millis_display_1.external_connection"
+   name="display_1_external_connection"
+   internal="display_1.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="minutes_display_0_external_connection"
-   internal="minutes_display_0.external_connection"
+   name="display_2_external_connection"
+   internal="display_2.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="minutes_display_1_external_connection"
-   internal="minutes_display_1.external_connection"
+   name="display_3_external_connection"
+   internal="display_3.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="display_4_external_connection"
+   internal="display_4.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="display_5_external_connection"
+   internal="display_5.external_connection"
    type="conduit"
    dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
- <interface
-   name="seconds_display_0_external_connection"
-   internal="seconds_display_0.external_connection"
-   type="conduit"
-   dir="end" />
- <interface
-   name="seconds_display_1_external_connection"
-   internal="seconds_display_1.external_connection"
-   type="conduit"
-   dir="end" />
  <interface
    name="switches_0_external_connection"
    internal="switches_0.external_connection"
@@ -224,11 +224,7 @@
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
- <module
-   name="millis_display_0"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
+ <module name="display_0" kind="altera_avalon_pio" version="21.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -242,11 +238,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="4" />
  </module>
- <module
-   name="millis_display_1"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
+ <module name="display_1" kind="altera_avalon_pio" version="21.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -260,11 +252,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="4" />
  </module>
- <module
-   name="minutes_display_0"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
+ <module name="display_2" kind="altera_avalon_pio" version="21.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -278,11 +266,35 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="4" />
  </module>
- <module
-   name="minutes_display_1"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
+ <module name="display_3" kind="altera_avalon_pio" version="21.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+ </module>
+ <module name="display_4" kind="altera_avalon_pio" version="21.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+ </module>
+ <module name="display_5" kind="altera_avalon_pio" version="21.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -320,7 +332,7 @@
   <parameter name="dataAddrWidth" value="20" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x11000' type='altera_avalon_onchip_memory2.s1' /><slave name='minutes_display_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='minutes_display_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='seconds_display_0.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='seconds_display_1.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='millis_display_0.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /><slave name='millis_display_1.s1' start='0x70000' end='0x70010' type='altera_avalon_pio.s1' /><slave name='timer_0.s1' start='0x80000' end='0x80020' type='altera_avalon_timer.s1' /><slave name='switches_0.s1' start='0x90000' end='0x90010' type='altera_avalon_pio.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ram_0.s1' start='0x10000' end='0x11000' type='altera_avalon_onchip_memory2.s1' /><slave name='display_0.s1' start='0x20000' end='0x20010' type='altera_avalon_pio.s1' /><slave name='display_1.s1' start='0x30000' end='0x30010' type='altera_avalon_pio.s1' /><slave name='display_2.s1' start='0x40000' end='0x40010' type='altera_avalon_pio.s1' /><slave name='display_3.s1' start='0x50000' end='0x50010' type='altera_avalon_pio.s1' /><slave name='display_4.s1' start='0x60000' end='0x60010' type='altera_avalon_pio.s1' /><slave name='display_5.s1' start='0x70000' end='0x70010' type='altera_avalon_pio.s1' /><slave name='timer_0.s1' start='0x80000' end='0x80020' type='altera_avalon_timer.s1' /><slave name='switches_0.s1' start='0x90000' end='0x90010' type='altera_avalon_pio.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -542,42 +554,6 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="false" />
  </module>
- <module
-   name="seconds_display_0"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="4" />
- </module>
- <module
-   name="seconds_display_1"
-   kind="altera_avalon_pio"
-   version="21.1"
-   enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="4" />
- </module>
  <module name="switches_0" kind="altera_avalon_pio" version="21.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -593,7 +569,7 @@
   <parameter name="width" value="3" />
  </module>
  <module name="timer_0" kind="altera_avalon_timer" version="21.1" enabled="1">
-  <parameter name="alwaysRun" value="true" />
+  <parameter name="alwaysRun" value="false" />
   <parameter name="counterSize" value="32" />
   <parameter name="fixedPeriod" value="true" />
   <parameter name="period" value="1" />
@@ -617,36 +593,36 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="minutes_display_0.s1">
+   end="display_5.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00020000" />
+  <parameter name="baseAddress" value="0x00070000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="minutes_display_1.s1">
+   end="display_4.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00030000" />
+  <parameter name="baseAddress" value="0x00060000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="seconds_display_0.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00040000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="21.1"
-   start="nios2_gen2_0.data_master"
-   end="seconds_display_1.s1">
+   end="display_3.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00050000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="21.1"
+   start="nios2_gen2_0.data_master"
+   end="display_2.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00040000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -671,18 +647,18 @@
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="millis_display_1.s1">
+   end="display_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00070000" />
+  <parameter name="baseAddress" value="0x00020000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="21.1"
    start="nios2_gen2_0.data_master"
-   end="millis_display_0.s1">
+   end="display_1.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00060000" />
+  <parameter name="baseAddress" value="0x00030000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -694,37 +670,13 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="minutes_display_0.clk" />
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="minutes_display_1.clk" />
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="seconds_display_0.clk" />
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="seconds_display_1.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_5.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_4.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_3.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_2.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="millis_display_0.clk" />
- <connection
-   kind="clock"
-   version="21.1"
-   start="clk_0.clk"
-   end="millis_display_1.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_1.clk" />
+ <connection kind="clock" version="21.1" start="clk_0.clk" end="display_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="timer_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="switches_0.clk" />
  <connection kind="clock" version="21.1" start="clk_0.clk" end="rom_0.clk1" />
@@ -740,32 +692,32 @@
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="minutes_display_0.reset" />
+   end="display_5.reset" />
  <connection
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="minutes_display_1.reset" />
+   end="display_4.reset" />
  <connection
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="seconds_display_0.reset" />
+   end="display_3.reset" />
  <connection
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="seconds_display_1.reset" />
+   end="display_2.reset" />
  <connection
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="millis_display_0.reset" />
+   end="display_1.reset" />
  <connection
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="millis_display_1.reset" />
+   end="display_0.reset" />
  <connection
    kind="reset"
    version="21.1"

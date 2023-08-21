@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Aug 20, 2023 8:09:02 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1692583742486</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Aug 21, 2023 1:24:18 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1692602658215</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/rijegaro/Documents/Github/tarea_1_os/software/tarea_1_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../platform.sopcinfo</SopcDesignFile>
@@ -887,37 +887,37 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>minutes_display_0</slaveDescriptor>
+                <slaveDescriptor>display_0</slaveDescriptor>
                 <addressRange>0x00020000 - 0x0002000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>minutes_display_1</slaveDescriptor>
+                <slaveDescriptor>display_1</slaveDescriptor>
                 <addressRange>0x00030000 - 0x0003000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seconds_display_0</slaveDescriptor>
+                <slaveDescriptor>display_2</slaveDescriptor>
                 <addressRange>0x00040000 - 0x0004000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seconds_display_1</slaveDescriptor>
+                <slaveDescriptor>display_3</slaveDescriptor>
                 <addressRange>0x00050000 - 0x0005000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>millis_display_0</slaveDescriptor>
+                <slaveDescriptor>display_4</slaveDescriptor>
                 <addressRange>0x00060000 - 0x0006000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>millis_display_1</slaveDescriptor>
+                <slaveDescriptor>display_5</slaveDescriptor>
                 <addressRange>0x00070000 - 0x0007000F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
