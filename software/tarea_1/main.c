@@ -28,6 +28,12 @@ unsigned display_2;
 unsigned display_1;
 unsigned display_0;
 
+/**
+ * Adds one millisecond to the timer each time it is called.
+ * If the timer reaches 1000 milliseconds, it adds one second.
+ * If the timer reaches 60 seconds, it adds one minute.
+ * If the timer reaches 99 minutes, it resets to 0.
+*/
 void set_time() {
   millis++;
 
@@ -46,6 +52,12 @@ void set_time() {
   }
 }
 
+/**
+ * Sets the displays according to the current mode.
+ * Mode 0: Displays milliseconds.
+ * Mode 1: Displays seconds.
+ * Mode 2: Displays minutes, seconds and milliseconds.
+*/
 void set_mode() {
   switch (mode) {
   case 0b00:
@@ -79,6 +91,9 @@ void set_mode() {
   }
 }
 
+/**
+ * Sets the value of the PIOs used by the displays.
+*/
 void set_displays() {
   IOWR_ALTERA_AVALON_PIO_DATA(DISPLAY_5_BASE, display_5);
   IOWR_ALTERA_AVALON_PIO_DATA(DISPLAY_4_BASE, display_4);
@@ -90,6 +105,9 @@ void set_displays() {
   IOWR_ALTERA_AVALON_PIO_DATA(DISPLAY_0_BASE, display_0);
 }
 
+/**
+ * Updates the timer, and sets the displays.
+*/
 void timer_isr(void* context) {
   (void)context;
 
@@ -102,6 +120,7 @@ void timer_isr(void* context) {
 
 int main()
 {
+  /** Executes the timer_isr function every time the timer reaches zero */
   alt_ic_isr_register(
     TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,
     TIMER_0_IRQ,
@@ -117,10 +136,13 @@ int main()
 
   /* Event loop never exits. */
   while (1) {
+    /** Reads the inputs for mode selection */
     mode = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & MODE_MSK;
+    /** Reads the input for stopping and starting the timer */
     stop = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_0_BASE) & STOP_MSK;
 
     if (stop) {
+      /** Writes to the control register of the timer and stops it */
       IOWR_ALTERA_AVALON_TIMER_CONTROL(
         TIMER_0_BASE,
         ALTERA_AVALON_TIMER_CONTROL_STOP_MSK
@@ -129,6 +151,7 @@ int main()
       );
     }
     else {
+      /** Writes to the control register of the timer and starts it */
       IOWR_ALTERA_AVALON_TIMER_CONTROL(
         TIMER_0_BASE,
         ALTERA_AVALON_TIMER_CONTROL_START_MSK

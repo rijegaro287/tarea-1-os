@@ -1,3 +1,4 @@
+/** Converts a 4-bit number to its representation in a 7-segment display */
 module display_driver(
   input logic [3:0] data,
   output logic [6:0] segment
